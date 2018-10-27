@@ -1,6 +1,12 @@
 {
   "name": "Caliber",
   "short_name": "Caliber",
+  "icons": [{
+    "src": "/img/to-do-list.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
   "start_url": "/",
   "gcm_sender_id": "103953800507",
   "display": "standalone",

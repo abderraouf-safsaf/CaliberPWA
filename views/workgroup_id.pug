@@ -46,17 +46,18 @@ html
               .card(style='	box-shadow: 1.5px 1.5px 5px  #b9b9b9;')
                 .card-header.py-1
                   .row
-                    .col-md-4.col-6.d-flex.flex-row.justify-content-center.align-items-center
+                    .col-md-4.d-flex.flex-row.justify-content-center.align-items-center.col-2.text-center
+                      a.btn.btn-success.btn-sm(href='#', data-toggle='modal', data-target='#taskDone', style='	border-top-left-radius: 50px;	border-top-right-radius: 50px;	border-bottom-left-radius: 50px;	border-bottom-right-radius: 50px;')
+                        i.fa.fa-fw.fa-check-square
+                    .col-md-4.col-8.d-flex.flex-row.justify-content-center.align-items-center
                       h5.my-1= task.libelle
-                    .col-md-4.p-0.d-flex.flex-column.justify-content-center.align-items-center.col-4
-                      .progress.my-1.w-100
-                        .progress-bar.m-0.progress-bar-striped.bg-success.w-25(role='progressbar', style='width:25%') 25%
                     .col-md-4.col-2.d-flex.flex-column.text-right.justify-content-center.align-items-end
                       button.close.text-center.d-flex.flex-column.justify-content-center.align-items-center.m-0(type='button', data-dismiss='modal')
                         span.text-center.d-flex.flex-column.justify-content-center.align-items-center.m-0(style='') ×
                 .card-body.d-flex.flex-column.justify-content-center.align-items-start.p-2
-                  h6.text-muted= task.deadline
+                  h6.text-muted Deadline: #{task.deadline}
                   p.m-0= task.description
+
         .row
           .col-md-12.py-2.text-left.h-100.d-flex.flex-column
             a.btn.btn-primary.btn-lg.fixed-bottom.m-3.w-25.d-flex.flex-row.justify-content-center.align-items-center(href='#', data-toggle='modal', data-target='#createWorkgroupModal', style='	border-top-left-radius: 100px;	border-top-right-radius: 100px;	border-bottom-left-radius: 100px;	border-bottom-right-radius: 100px; min-width: 100px;')
@@ -140,6 +141,19 @@ html
                               .d-flex.justify-content-center.col-2.flex-row.align-items-center
                                 a.btn.m-2.btn-success.text-center.d-flex.flex-row.justify-content-center.align-items-center.btn-lg(onclick='addJudge("' + user._id + '")',href='#', style='	max-height: 40px;	max-width: 40px;	min-height: 40px;	min-width: 40px;	height: 40px;	width: 40px;')
                                   i.fa.fa-balance-scale.fa-fw.my-1
+    #taskDone.modal.fade
+        .modal-dialog
+            .modal-content
+                form
+                    .modal-header
+                        h4.modal-title Task Done
+                        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                    .modal-body
+                        p Confirm the completion of the task
+
+                    .modal-footer
+                        input.btn.btn-default(type='button', value='Cancel', data-dismiss='modal')
+                        input.btn.btn-success.btn(type='button', value='Confirm', id='deletePricingButton', data-dismiss='modal', onclick='location.reload();')
     script.
       var args = !{JSON.stringify(args)}
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
