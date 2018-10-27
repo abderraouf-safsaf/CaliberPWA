@@ -65,7 +65,9 @@ module.exports = function(app){
 	app.put('/tasks/:id', taskController.update);
 	app.delete('/tasks/:id', taskController.delete);
 
-
+app.get('/html', (req, res) =>{
+	res.send('This is a sample html page');
+});
 	app.get('/login', (req, res) =>	{
 		res.render('login');
 	});

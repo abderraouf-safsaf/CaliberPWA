@@ -26,11 +26,12 @@ app.use(flash());
 
 //Passport
 
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/devfest';
 
 // Connect to mongodb
 var connect = function () {
   var options = { server: { socketOptions: { keepAlive: 1 } } }
-  mongoose.connect('mongodb://localhost/devfest', options)
+  mongoose.connect(mongoUrl, options)
 }
 connect()
 
