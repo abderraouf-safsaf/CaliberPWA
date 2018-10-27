@@ -49,9 +49,9 @@ fs.readdirSync(__dirname + '/models').forEach(function (file) {
   if (~file.indexOf('.js')) require(__dirname + '/models/' + file)
 })
 
-
+const port = process.env.PORT || 4000;
 require('./routes.js')(app);
  // http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/ 
-app.listen(4000, function(){
+app.listen(port, function(){
     console.log('Server running...');
 });
