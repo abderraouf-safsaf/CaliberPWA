@@ -21,19 +21,20 @@ html
           .col-md-12.py-4(style='')
             ul.list-group(style='	box-shadow: 2px 2px 4px  #b9b9b9;')
               each w in args.workgroups
-                a(href='/workgroups/'+w._id)
+                a.text-muted(href='/workgroups/'+w._id, style="text-decoration: none;")
                   li.list-group-item.d-flex.justify-content-between.align-items-center.px-1(style='')
                     .row.w-100.m-0.p-0
-                      .col-md-4.col-10(style='')= w.title
+                      .col-md-4.col-10(style='')
+                        b= w.title
                       .col-md-4.col-2
                         span.badge.badge-primary.badge-pill
                           i.fa.fa-user.fa-fw= ' ' + w.users.length
         .row
           .col-md-12.py-2.text-left.h-100.d-flex.flex-column
-            a.btn.btn-primary.btn-lg.w-25.fixed-bottom.m-3(href='#', data-toggle='modal', data-target='#createWorkgroupModal', style='	border-top-left-radius: 100px;	border-top-right-radius: 100px;	border-bottom-left-radius: 100px;	border-bottom-right-radius: 100px;')
-              i.fa.fa-fw.fa-plus-circle
-              |  New
-    #createWorkgroupModal.modal.my-5
+            a.btn.btn-primary.btn-lg.w-25.fixed-bottom.m-3.d-flex.flex-row.justify-content-center.align-items-center(href='#', data-toggle='modal', data-target='#createWorkgroupModal', style='	border-top-left-radius: 100px;	border-top-right-radius: 100px;	border-bottom-left-radius: 100px;	border-bottom-right-radius: 100px; min-width: 100px;')
+              i.fa.fa-fw.fa-plus-circle.m-1
+              | New
+    #createWorkgroupModal.modal.my-5(style="min-height: 100%;")
       .modal-dialog(role='document')
         .modal-content
           .modal-header.bg-primary
